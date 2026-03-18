@@ -13,6 +13,7 @@ Built as a portfolio project demonstrating end-to-end RAG pipeline implementatio
 - **AI-Powered Answers**: Claude generates responses grounded in your documents
 - **Source Citations**: Every answer includes verifiable source references
 - **Chat Interface**: Clean Streamlit UI for interactive Q&A
+- **Auto-Indexing**: Folder watcher automatically indexes new PDFs 
 
 ## Architecture
 ```
@@ -136,6 +137,17 @@ for citation in response.citations:
     print(f"  - {citation.source}, Page {citation.page}")
 ```
 
+### Auto-indexing with folder watcher
+```bash
+# Terminal 1: Start the watcher
+python scripts/run_watcher.py
+
+# Terminal 2: Drop a PDF in the folder
+cp new_document.pdf data/documents/
+
+# The watcher will automatically detect and index the file
+```
+
 ## Key Design Decisions
 
 ### Why Voyage AI over OpenAI embeddings?
@@ -155,7 +167,6 @@ pdfplumber provides better text extraction for complex layouts and preserves tab
 
 ## Future Enhancements
 
-- [ ] Folder watcher for automatic ingestion
 - [ ] Google Drive / Dropbox integration
 - [ ] Multimodal support (image understanding)
 - [ ] OCR for scanned documents
