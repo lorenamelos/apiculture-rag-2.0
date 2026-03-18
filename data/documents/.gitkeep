@@ -1,0 +1,5 @@
+# Document Storage
+
+Place your PDF files in this directory for indexing.
+
+When the folder watcher is running, new files will be automatically processed.
